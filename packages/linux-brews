@@ -1,13 +1,7 @@
 age
-awscli
 bat
 asdf
 gh
-font-hack-nerd-font
-font-inconsolata-nerd-font
-font-liberation-nerd-font
-font-space-mono-nerd-font
-font-victor-mono-nerd-font
 fzf
 httpie
 kubernetes-cli
@@ -16,7 +10,5 @@ kustomize
 magic-wormhole
 minikube
 pwgen
-ripgrep
 skaffold
-starship
 zoxide

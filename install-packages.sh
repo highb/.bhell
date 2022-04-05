@@ -12,3 +12,11 @@ for PACKAGE in $PACKAGES; do
         fi
     fi
 done
+
+while read SNAP; do
+    SNAPNAME=$(echo "${SNAP}" | cut -d' ' -f1)
+    if ! snap info "${SNAPNAME}" | grep installed >> ${DEBUG_LOG}; then
+        echo "Installing snap ${SNAP}..."
+        sudo snap install ${SNAP}
+    fi
+done < $SNAPS_FILE
