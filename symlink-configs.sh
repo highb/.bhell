@@ -19,7 +19,7 @@ done
 for FILE in $CONFIG_FILES; do
     REALPATH=$(realpath --relative-to="${CONFIGS_DIR}" "${FILE}")
     DEST_FILE="${HOME}/${REALPATH}"
-    if [ ! -d "${DEST_DIR}" ]; then
+    if [ ! -L "${DEST_FILE}" ]; then
         ln -s "${FILE}" "${DEST_FILE}"
     else
         echo "${DEST_FILE} already exists."
