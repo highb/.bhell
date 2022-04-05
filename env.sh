@@ -14,6 +14,9 @@ if [ "$(uname)" == "Darwin" ]; then
 elif [ "$(uname)" == "Linux" ]; then
   export PACKAGES_FILE="${BHELL}/packages/ubuntu-packages"
   export PACKAGES="$(cat ${PACKAGES_FILE} | xargs)"
+else
+  echo "Unknown platform $(uname)"
+  exit 1
 fi
 
 export CONFIGS_DIR="${BHELL}/configs"
