@@ -243,6 +243,9 @@ export GO111MODULE=on
 # zoxide better cd
 eval "$(zoxide init zsh)"
 
+# navi CLI cheatsheet tool
+eval "$(navi widget zsh)"
+
 #[[ -s "/Users/brandonhigh/.gvm/scripts/gvm" ]] && source "/Users/brandonhigh/.gvm/scripts/gvm"
 
 #autoload -U +X bashcompinit && bashcompinit
