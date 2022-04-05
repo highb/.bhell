@@ -119,7 +119,7 @@ plugins=(
 if [[ "$(uname)" == "Linux" ]]; then
   export ZPLUG_HOME=/home/linuxbrew/.linuxbrew/opt/zplug
 elif [[ "$(uname)" == "Darwin" ]]; then
-  export ZPLUG_HOME=~/.zplug
+  export ZPLUG_HOME=/usr/local/opt/zplug
 fi
 source $ZPLUG_HOME/init.zsh
 
