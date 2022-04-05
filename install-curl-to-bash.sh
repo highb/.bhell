@@ -5,7 +5,10 @@ if [ "$(uname)" == "Darwin" ]; then
     curl https://sdk.cloud.google.com > install.sh
     bash install.sh --disable-prompts
 elif [ "$(uname)" == "Linux" ]; then
-    echo "Installing ???..."
+    echo "Installing zplug..."
+    if [ ! -d /home/linuxbrew/.linuxbrew/opt/zplug ]; then
+      curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+    fi
 fi
 
 # Below this line should work on all shells

@@ -1,7 +1,9 @@
 age
 bat
 asdf
+exa
 gh
+jq
 fzf
 httpie
 kubernetes-cli
@@ -9,6 +11,9 @@ kubie
 kustomize
 magic-wormhole
 minikube
+navi
 pwgen
 skaffold
+yq
 zoxide
+zplug

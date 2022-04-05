@@ -2,7 +2,9 @@ age
 awscli
 bat
 asdf
+exa
 gh
+jq
 font-hack-nerd-font
 font-inconsolata-nerd-font
 font-liberation-nerd-font
@@ -15,8 +17,11 @@ kubie
 kustomize
 magic-wormhole
 minikube
+navi
 pwgen
 ripgrep
 skaffold
 starship
+yq
 zoxide
+zplug

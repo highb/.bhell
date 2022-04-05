@@ -98,7 +98,6 @@ plugins=(
 #  bundler
   colorize
   colored-man-pages
-  command-time
   copybuffer
   copyfile
   copypath
@@ -111,22 +110,32 @@ plugins=(
   kubectl
 #  python
 #  ruby
-  vi-mode
   fzf
 #  z
-  zsh-autosuggestions
   zsh-interactive-cd
   zsh-navigation-tools
-  zsh-syntax-highlighting
-  zsh-vi-mode
 )
 
-
-export ZPLUG_HOME=/usr/local/opt/zplug
+if [[ "$(uname)" == "Linux" ]]; then
+  export ZPLUG_HOME=/home/linuxbrew/.linuxbrew/opt/zplug
+elif [[ "$(uname)" == "Darwin" ]]; then
+  export ZPLUG_HOME=~/.zplug
+fi
 source $ZPLUG_HOME/init.zsh
 
 #zplug "changyuheng/fz", defer:1
 #zplug "rupa/z", use:z.sh
+zplug "popstas/zsh-command-time"
+zplug "jeffreytse/zsh-vi-mode"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "MichaelAquilina/zsh-you-should-use"
+
+# zplug check returns true if all packages are installed
+# Therefore, when it returns false, run zplug install
+if ! zplug check; then
+    zplug install
+fi
 
 # Then, source plugins and add commands to $PATH
 zplug load

@@ -4,6 +4,7 @@ code
 discord
 exercism
 google-cloud-cli --classic
-ripgrep
+ripgrep --classic
+slack
 starship
 zola
