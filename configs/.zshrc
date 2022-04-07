@@ -227,6 +227,9 @@ eval "$(zoxide init zsh)"
 # navi CLI cheatsheet tool
 eval "$(navi widget zsh)"
 
+# use delta for kubectl diff
+export KUBECTL_EXTERNAL_DIFF="delta --color-only"
+
 #[[ -s "/Users/brandonhigh/.gvm/scripts/gvm" ]] && source "/Users/brandonhigh/.gvm/scripts/gvm"
 
 #autoload -U +X bashcompinit && bashcompinit
