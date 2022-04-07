@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# zsh perf profiling
+#zmodload zsh/zprof
+
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
 
@@ -64,27 +67,6 @@ export ZSH="${HOME}/.oh-my-zsh"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-zsh_command_time() {
-    if [ -n "$ZSH_COMMAND_TIME" ]; then
-        hours=$(($ZSH_COMMAND_TIME/3600))
-        min=$(($ZSH_COMMAND_TIME/60))
-        sec=$(($ZSH_COMMAND_TIME%60))
-        if [ "$ZSH_COMMAND_TIME" -le 60 ]; then
-            timer_show="$fg[green]$ZSH_COMMAND_TIME s."
-        elif [ "$ZSH_COMMAND_TIME" -gt 60 ] && [ "$ZSH_COMMAND_TIME" -le 180 ]; then
-            timer_show="$fg[yellow]$min min. $sec s."
-        else
-            if [ "$hours" -gt 0 ]; then
-                min=$(($min%60))
-                timer_show="$fg[red]$hours h. $min min. $sec s."
-            else
-                timer_show="$fg[red]$min min. $sec s."
-            fi
-        fi
-        printf "${ZSH_COMMAND_TIME_MSG}\n" "$timer_show"
-    fi
-}
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -125,7 +107,6 @@ source $ZPLUG_HOME/init.zsh
 
 #zplug "changyuheng/fz", defer:1
 #zplug "rupa/z", use:z.sh
-zplug "popstas/zsh-command-time"
 zplug "jeffreytse/zsh-vi-mode"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
@@ -255,3 +236,6 @@ if [ -f "${WORK_ZSH_CONFIG}" ]; then
 fi
 
 echo "Completed .zshrc"
+
+# zsh perf profiling
+#zprof

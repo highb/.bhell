@@ -1,11 +1,13 @@
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+disabled = false
 
 [cmake]
 format = '\[[$symbol($version)]($style)\]'
 
 [cmd_duration]
 format = '\[[⏱ $duration]($style)\]'
+disabled = false
 
 [cobol]
 format = '\[[$symbol($version)]($style)\]'
@@ -24,6 +26,7 @@ format = '\[[$symbol($version)]($style)\]'
 
 [docker_context]
 format = '\[[$symbol$context]($style)\]'
+disabled = false
 
 [dotnet]
 format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
@@ -39,24 +42,30 @@ format = '\[[$symbol($version)]($style)\]'
 
 [gcloud]
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+disabled = false
 
 [git_branch]
 format = '\[[$symbol$branch]($style)\]'
+disabled = false
 
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style))'
+disabled = false
 
 [golang]
 format = '\[[$symbol($version)]($style)\]'
+disabled = false
 
 [helm]
 format = '\[[$symbol($version)]($style)\]'
+disabled = false
 
 [hg_branch]
 format = '\[[$symbol$branch]($style)\]'
 
 [java]
 format = '\[[$symbol($version)]($style)\]'
+disabled = false
 
 [julia]
 format = '\[[$symbol($version)]($style)\]'
@@ -66,6 +75,7 @@ format = '\[[$symbol($version)]($style)\]'
 
 [kubernetes]
 format = '\[[$symbol$context( \($namespace\))]($style)\]'
+disabled = false
 
 [lua]
 format = '\[[$symbol($version)]($style)\]'
@@ -105,33 +115,43 @@ format = '\[[$symbol($version)]($style)\]'
 
 [python]
 format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+disabled = false
 
 [red]
 format = '\[[$symbol($version)]($style)\]'
 
 [ruby]
 format = '\[[$symbol($version)]($style)\]'
+disabled = false
 
 [rust]
 format = '\[[$symbol($version)]($style)\]'
+disabled = false
 
 [scala]
 format = '\[[$symbol($version)]($style)\]'
 
+[status]
+disabled = false
+
 [sudo]
 format = '\[[as $symbol]\]'
+disabled = false
 
 [swift]
 format = '\[[$symbol($version)]($style)\]'
 
 [terraform]
 format = '\[[$symbol$workspace]($style)\]'
+disabled = false
 
 [time]
 format = '\[[$time]($style)\]'
+disabled = false
 
 [username]
 format = '\[[$user]($style)\]'
+disabled = false
 
 [vagrant]
 format = '\[[$symbol($version)]($style)\]'
