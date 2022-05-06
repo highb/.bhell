@@ -230,6 +230,9 @@ eval "$(navi widget zsh)"
 # use delta for kubectl diff
 export KUBECTL_EXTERNAL_DIFF="delta --color-only"
 
+# nnn file browser enhanchements
+export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview;J:autojump;'
+
 #[[ -s "/Users/brandonhigh/.gvm/scripts/gvm" ]] && source "/Users/brandonhigh/.gvm/scripts/gvm"
 
 #autoload -U +X bashcompinit && bashcompinit
@@ -242,3 +245,4 @@ echo "Completed .zshrc"
 
 # zsh perf profiling
 #zprof
+export PATH="/usr/local/sbin:$PATH"
