@@ -1,1 +1,7 @@
 shell = "bash -c '{}'"
+
+[[item]]
+file = "~/.colors"
+template = "bash"
+rewrite = true
+hook = "systemctl --user reload rgbdaemon"

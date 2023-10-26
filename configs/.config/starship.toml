@@ -140,8 +140,8 @@ format = '\[[$symbol($version)]($style)\]'
 disabled = false
 
 [sudo]
-format = '\[[as $symbol]\]'
-disabled = false
+format = '\[as $symbol\]'
+disabled = true
 
 [swift]
 format = '\[[$symbol($version)]($style)\]'

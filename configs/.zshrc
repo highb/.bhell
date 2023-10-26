@@ -90,12 +90,14 @@ plugins=(
   helm
   httpie
   kubectl
-#  python
+  kustomize
+  python
+  poetry
 #  ruby
-  fzf
-#  z
-  zsh-interactive-cd
-  zsh-navigation-tools
+# fzf
+  zoxide
+#  zsh-interactive-cd
+#  zsh-navigation-tools
 )
 
 if [[ "$(uname)" == "Linux" ]]; then
@@ -105,8 +107,8 @@ elif [[ "$(uname)" == "Darwin" ]]; then
 fi
 source $ZPLUG_HOME/init.zsh
 
-#zplug "changyuheng/fz", defer:1
-#zplug "rupa/z", use:z.sh
+zplug "changyuheng/fz", defer:1
+zplug "rupa/z", use:z.sh
 zplug "jeffreytse/zsh-vi-mode"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
@@ -184,7 +186,7 @@ eval "$(starship init zsh)"
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='code --wait'
+  export EDITOR='vim'
 fi
 
 # Compilation flags
@@ -221,11 +223,8 @@ export GO111MODULE=on
 #compinit
 #source /Users/brandonhigh/.jfrog/jfrog_zsh_completion
 
-# zoxide better cd
-eval "$(zoxide init zsh)"
-
 # navi CLI cheatsheet tool
-eval "$(navi widget zsh)"
+#eval "$(navi widget zsh)"
 
 # use delta for kubectl diff
 export KUBECTL_EXTERNAL_DIFF="delta --color-only"
@@ -236,13 +235,67 @@ export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview;J:autoju
 #[[ -s "/Users/brandonhigh/.gvm/scripts/gvm" ]] && source "/Users/brandonhigh/.gvm/scripts/gvm"
 
 #autoload -U +X bashcompinit && bashcompinit
-WORK_ZSH_CONFIG="${HOME}/.zshrc.work"
-if [ -f "${WORK_ZSH_CONFIG}" ]; then
-  source "${WORK_ZSH_CONFIG}"
-fi
+#WORK_ZSH_CONFIG="${HOME}/.zshrc.work"
+#if [ -f "${WORK_ZSH_CONFIG}" ]; then
+#  source "${WORK_ZSH_CONFIG}"
+#fi
 
-echo "Completed .zshrc"
+alias tf="terraform"
+alias ts="tsh"
+alias tshkli="tsh kube login"
+alias tshkls="tsh kube ls"
+alias tshli="tsh login"
+alias tshlo="tsh logout"
+
+function kes-force-sync() {
+  # If either arg is empty, print usage
+  if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Usage: kes-bump <namespace> <externalSecret>"
+    return 1
+  fi
+  NS="${1}"
+  ES="${2}"
+  kubectl annotate -n $NS es $ES force-sync=$(date +%s) --overwrite
+}
+
+# . ~/.asdf/plugins/java/set-java-home.zsh
+
+# Setup devbox for global nix goodness
+#eval "$(devbox global shellenv)"
+
+# Setup direnv for per-env tooling alternative to asdf
+#eval "$(direnv hook bash)"
+
 
 # zsh perf profiling
 #zprof
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+
+export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="${PATH}:${HOME}/.krew/bin"
+
+#export PATH="/usr/local/anaconda3/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+#export SDKMAN_DIR="$HOME/.sdkman"
+#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
+ATUIN_NOBIND="true"
+eval "$(atuin init zsh)"
+bindkey '^r' _atuin_search_widget
+
+
+echo "Completed .zshrc"
+
+# pnpm
+export PNPM_HOME="/Users/brandonhigh/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+
+source /Users/brandonhigh/.config/broot/launcher/bash/br
