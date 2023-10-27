@@ -18,5 +18,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          path: .bhell
-      - run: bash .bhell/setup.sh
+          path: ~/.bhell
+      - run: bash ~/.bhell/setup.sh
