@@ -1,0 +1,22 @@
+---
+name: ci
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+        - macos-12
+        - ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: .bhell
+      - run: bash .bhell/setup.sh
