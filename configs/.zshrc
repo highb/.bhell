@@ -90,7 +90,6 @@ plugins=(
   helm
   httpie
   kubectl
-  kustomize
   python
   poetry
 #  ruby
@@ -103,7 +102,7 @@ plugins=(
 if [[ "$(uname)" == "Linux" ]]; then
   export ZPLUG_HOME=/home/linuxbrew/.linuxbrew/opt/zplug
 elif [[ "$(uname)" == "Darwin" ]]; then
-  export ZPLUG_HOME=/usr/local/opt/zplug
+  export ZPLUG_HOME=/opt/homebrew/opt/zplug
 fi
 source $ZPLUG_HOME/init.zsh
 
@@ -207,7 +206,7 @@ alias la="exa -ah"
 alias lsa="exa -lah"
 
 
-export PATH="${HOME}/bin:${PATH}"
+export PATH="${HOME}/.bhell/bin:${PATH}"
 
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 
@@ -282,12 +281,11 @@ export PATH="${PATH}:${HOME}/.krew/bin"
 #[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 
-ATUIN_NOBIND="true"
-eval "$(atuin init zsh)"
-bindkey '^r' _atuin_search_widget
+#ATUIN_NOBIND="true"
+#eval "$(atuin init zsh)"
+#bindkey '^r' _atuin_search_widget
 
 
-echo "Completed .zshrc"
 
 # pnpm
 export PNPM_HOME="/Users/brandonhigh/Library/pnpm"
@@ -298,4 +296,4 @@ esac
 # pnpm end
 
 
-source /Users/brandonhigh/.config/broot/launcher/bash/br
+echo "Completed .zshrc"
